@@ -16,6 +16,16 @@ let selectedTracks = [];
 
 let frameUpdateTimer;
 let graphRequestNumber = 0;
+let currentData = [];
+
+async function loadCSV(sequence) {
+    currentData = await d3.csv(
+        "GT/" + encodeURIComponent(sequence),
+        d3.autoType
+    );
+
+    return currentData;
+}
 
 function scheduleGraphUpdate() {
     clearTimeout(frameUpdateTimer);
