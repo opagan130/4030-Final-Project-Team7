@@ -145,8 +145,8 @@ def trajectory():
 
     # Highlight selected lineages
     colors = [
-        "#F28B82", "#E5C65B",
-        "#81C995", "#65C9C0", "#8AB4F8", "#B39DDB", "#F48FB1"
+        "#E84A5F", "#FF922B", "#FFD43B",
+         "#2EAD57", "#008C95", "#3478F6", "#8950D6", "#E64AAB"
     ]
 
     for i, track_id in enumerate(selected):
