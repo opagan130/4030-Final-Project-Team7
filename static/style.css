@@ -125,11 +125,6 @@ button:hover {
     margin: 0 0 6px;
 }
 
-#trajectoryPlot {
-    width: 100%;
-    height: 350px;
-}
-
 .placeholder {
     height: 350px;
     display: flex;
@@ -350,5 +345,56 @@ button:hover {
     .dashboard-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Give the D3 graph enough room */
+#trajectoryPlot {
+    width: 100%;
+    height: auto;
+    min-height: 550px;
+    margin-bottom: 20px;
+    overflow: visible;
+}
+
+/* Keep track details below the graph */
+.track-details {
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* Filters arranged in two horizontal rows */
+.filters {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+}
+
+.filters > .filter-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.filter-row > div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filter-row .track-filter {
+    width: 300px;
+}
+
+.filter-row .frame-slider {
+    width: 250px;
+}
+
+.filter-row button {
+    align-self: flex-end;
 }
 
