@@ -1,0 +1,354 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f6f5fa;
+    color: #272238;
+}
+
+header {
+    background: #632d4f;
+    color: white;
+    padding: 12px 25px;
+}
+
+header h1 {
+    margin: 0 0 4px;
+    font-size: 22px;
+}
+
+header p {
+    margin: 0;
+    color: #ddd3ed;
+    font-size: 12px;
+}
+
+main {
+    padding: 18px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    background: white;
+    border-radius: 10px;
+}
+
+.filters label {
+    font-size: 12px;
+}
+
+.filters select,
+.filters input {
+    padding: 7px;
+    font-size: 13px;
+}
+
+.filters button {
+    padding: 9px 15px;
+    font-size: 13px;
+}
+
+main {
+    padding: 12px;
+    max-width: 1600px;
+    margin: auto;
+}
+
+.filters > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+select, input {
+    padding: 8px;
+    border: 1px solid #d8d4e2;
+    border-radius: 5px;
+    background: white;
+    min-width: 125px;
+}
+
+#tracks {
+    height: 75px;
+}
+
+small {
+    color: #777;
+    font-size: 11px;
+}
+
+button {
+    background: #d65a98;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 11px 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #a83f78;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.panel {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    min-width: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.panel h2 {
+    font-size: 16px;
+    margin: 0 0 6px;
+}
+
+#trajectoryPlot {
+    width: 100%;
+    height: 350px;
+}
+
+.placeholder {
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.division-panel {
+    grid-column: 1 / -1;
+}
+
+.division-panel .placeholder {
+    height: 180px;
+}
+
+@media (max-width: 800px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .division-panel {
+        grid-column: auto;
+    }
+}
+
+/* Searchable Track ID selector */
+
+.track-filter {
+    position: relative;
+    min-width: 210px;
+}
+
+#trackSearch {
+    width: 100%;
+}
+
+.track-options {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    max-height: 180px;
+    overflow-y: auto;
+    background: white;
+    border: 1px solid #d8d4e2;
+    border-radius: 6px;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.track-option {
+    padding: 9px 12px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.track-option:hover {
+    background: #fce6f0;
+}
+
+.track-option.selected {
+    background: #f5d6e6;
+    color: #a83f78;
+    font-weight: bold;
+}
+
+.selected-tracks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 7px;
+    max-width: 250px;
+}
+
+.track-tag {
+    background: #f5d6e6;
+    color: #a83f78;
+    border-radius: 5px;
+    padding: 5px 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.track-tag:hover {
+    background: #e8b6d0;
+}
+
+/* Selected Track Details */
+
+.track-details {
+    margin-top: 10px;
+    padding: 12px;
+    background: #fff0f6;
+    border: 1px solid #eac9db;
+    border-radius: 8px;
+}
+
+.track-details h3 {
+    font-size: 14px;
+    margin: 0 0 10px;
+    color: #632d4f;
+}
+
+.track-details p {
+    font-size: 13px;
+    color: #777;
+    margin: 0;
+}
+
+.track-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.track-stat {
+    background: white;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.track-stat span {
+    display: block;
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 4px;
+}
+
+.track-stat strong {
+    font-size: 15px;
+    color: #632d4f;
+}
+
+/* Frame Range Slider */
+
+.frame-slider {
+    min-width: 230px;
+}
+
+.slider-container {
+    position: relative;
+    width: 230px;
+    height: 32px;
+    margin-top: 8px;
+}
+
+.slider-container input[type="range"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    pointer-events: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.slider-container input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background:  #d65a98;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.slider-container input[type="range"]::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    background: #d65a98;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.frame-slider small {
+    color: #6b6478;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.panel {
+    min-width: 0;
+}
+
+#trajectoryPlot {
+    width: 100%;
+    height: 350px;
+}
+
+.placeholder {
+    height: 100%;
+    min-height: 350px;
+}
+
+.division-panel .placeholder {
+    height: 180px;
+    min-height: 180px;
+}
+
+@media (max-width: 800px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
